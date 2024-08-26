@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    {{!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    --}}
+    {{!--
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> --}}
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg w-100 py-3 px-3 position-fixed" style="z-index:999; ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><i class="bi bi-emoji-smile h1"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {{!-- <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutMe">About Me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/project">Projects</a>
+                        </li> 
+                    </ul>
+
+                   
+                </div> --}}
+            </div>
+        </nav>
+        <!--//navbar -->
+
+        {{{body}}}
+
+        
+        <div class="footer py-5 position-absolute bottom-0 w-100" style="z-index:999; background:#ffffff;">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="footer_menu">
+                            <ul class="list-unstyled d-flex justify-content-center gap-3">
+                                <li><a class="text-decoration-none text-muted" href="/">Home</a></li>
+                                <li><a class="text-decoration-none text-muted" href="/aboutMe">About Me</a></li>
+                                <li><a class="text-decoration-none text-muted" href="/project">Project</a></li>
+                                <li><a class="text-decoration-none text-muted" href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer_profile">
+                             <ul class="list-unstyled d-flex justify-content-center gap-5 mb-0">
+                        <li><a class="text-decoration-none footer-icons" href="www.linkedin.com/in/dain-shin"><i
+                                    class="bi bi-linkedin h4"></i></a></li>
+                        <li><a class="text-decoration-none footer-icons" href="https://github.com/DainShin"><i
+                                    class="bi bi-github h4"></i></a></li>
+                        <li><a class="text-decoration-none footer-icons" href="mailto:di.shin0611@gmail.com"><i
+                                    class="bi bi-envelope-at-fill h4"></i></a></li>
+                    </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./javascripts/script.js"></script>
+</body>
+
+</html>
