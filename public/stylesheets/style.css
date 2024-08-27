@@ -2,22 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-body,
-* {
-   margin: 0;
-   font-family: "Nunito", sans-serif;
-   /* color: #4a4a4a; */
-   z-index:-999;
+body, * {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
 }
 
 .wrapper {
     position: relative;
     background: url(../images/background.png);
-    z-index: -999;
+    z-index: 0;
     width: 100%;
     min-height: 100vh;
     height: auto;
-    padding-bottom:150px;
+    padding-bottom: 150px;
+    overflow: hidden;
 }
 
 .wrapper::before {
@@ -29,7 +27,7 @@ body,
     height: 100%;
     background-color: #fef7ea;
     opacity: 0.6;
-    z-index: 1;
+    z-index: -1;
 }
 
 h1,
@@ -39,7 +37,7 @@ h3 {
 }
 
 
-label{
+label {
     color: #808080;
 }
 
@@ -102,10 +100,45 @@ label{
     width: 100%;
     display: inline-block;
     font-family: "Freeman", sans-serif;
-    font-size: 120pt;
+    font-size: 11S0pt;
     user-select: none;
     color: #e30602;
 }
+
+@media(max-width: 624px) {
+    #text1,
+    #text2 {
+        font-size: 65pt;
+    }
+
+    #container {
+       padding-top: 150px;
+    }
+}
+
+@media(min-width: 625px) and (max-width: 780px) {
+    #text1,
+    #text2 {
+        font-size: 90pt;
+    }
+}
+
+@media(min-width: 781px) and (max-width: 991px) {
+    #text1,
+    #text2 {
+        font-size: 100pt;
+    }
+}
+
+@media(min-width: 992px) {
+    #text1,
+    #text2 {
+        font-size: 100pt;
+    }
+}
+
+
+
 
 #text-box {
     color: #333;
@@ -137,7 +170,7 @@ label{
 
 .btn.btn-primary {
     background-color: transparent;
-    color:#e30602;
+    color: #e30602;
     border: 1px solid #e30602;
 }
 
@@ -155,27 +188,32 @@ label{
     width: 100%;
     max-width: 900px;
     padding: 0 20px;
-  }
-  .skill-name {
+}
+
+.skill-name {
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
     margin: 20px 0;
-  }
-  .skill-bar {
+}
+
+.skill-bar {
     height: 20px;
     background: #cacaca;
     border-radius: 8px;
-  }
-  .skill-per {
+}
+
+.skill-per {
     height: 20px;
     background-color: #f05a48;
     border-radius: 8px;
     width: 0;
     position: relative;
     transition: 1s linear;
-  }
-  .skill-per::before {
+    z-index: 999;
+}
+
+.skill-per::before {
     content: attr(data-per);
     position: absolute;
     padding: 4px 6px;
@@ -186,8 +224,9 @@ label{
     top: -35px;
     right: 0;
     transform: translateX(50%);
-  }
-  .skill-per::after {
+}
+
+.skill-per::after {
     content: "";
     position: absolute;
     width: 10px;
@@ -197,151 +236,147 @@ label{
     right: 0;
     transform: translateX(50%) rotate(45deg);
     border-radius: 2px;
-  }
+}
 
 
-  /* Soft Skill */
-  .circle-chart {
+/* Soft Skill */
+.circle-chart {
     width: 150px;
     height: 150px;
-  }
-  
-  .circle-chart__circle {
+}
+
+.circle-chart__circle {
     stroke: #00acc1;
     stroke-width: 2;
     stroke-linecap: square;
     fill: none;
-    animation: circle-chart-fill 2s reverse; /* 1 */ 
-    transform: rotate(-90deg); /* 2, 3 */
-    transform-origin: center; /* 4 */
+    animation: circle-chart-fill 2s reverse;
+    /* 1 */
+    transform: rotate(-90deg);
+    /* 2, 3 */
+    transform-origin: center;
+    /* 4 */
     animation: none;
-  }
- 
-  
-  .circle-chart__circle--negative {
-    transform: rotate(-90deg) scale(1,-1); /* 1, 2, 3 */
-  }
-  
-  .circle-chart__background {
+}
+
+
+.circle-chart__circle--negative {
+    transform: rotate(-90deg) scale(1, -1);
+    /* 1, 2, 3 */
+}
+
+.circle-chart__background {
     stroke: #efefef;
     stroke-width: 2;
-    fill: none; 
-  }
-  
-  .circle-chart__info {
+    fill: none;
+}
+
+.circle-chart__info {
     animation: circle-chart-appear 2s forwards;
     opacity: 0;
     transform: translateY(0.3em);
-  }
-  
-  .circle-chart__percent {
+}
+
+.circle-chart__percent {
     alignment-baseline: central;
     text-anchor: middle;
     font-size: 8px;
-  }
-  
-  .circle-chart__subline {
-      alignment-baseline: central;
-      text-anchor: middle;
-      font-size: 3px;
-  }
-  
-  .success-stroke {
-    stroke: #00C851;
-  }
-  
-  .warning-stroke {
-    stroke: #ffbb33;
-  }
-  
-  .danger-stroke {
-    stroke: #ff4444;
-  }
-  
-  @keyframes circle-chart-fill {
-    to { stroke-dasharray: 0 100; }
-  }
-  
-  @keyframes circle-chart-appear {
+}
+
+.circle-chart__subline {
+    alignment-baseline: central;
+    text-anchor: middle;
+    font-size: 3px;
+}
+
+
+
+@keyframes circle-chart-fill {
     to {
-      opacity: 1;
-      transform: translateY(0);
+        stroke-dasharray: 0 100;
     }
-  }
-  
-  
-  .skills{
-  color: black;
-  }
-  
-  .skills_section{
+}
+
+@keyframes circle-chart-appear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.skills {
+    color: black;
+}
+
+.skills_section {
     width: 100%;
     margin: 0 auto;
     margin-bottom: 80px;
-  }
-  
-  .skill-head{
+}
+
+.skill-head {
     margin: 80px 0;
-  }
-  
-  .skill-head h1{
+}
+
+.skill-head h1 {
     font-size: 60px;
     font-weight: 700;
-  }
-  
-  
-  .skill-head p{
+}
+
+
+.skill-head p {
     margin-bottom: 10px;
-  }
-  
-  .skills-area {
+}
+
+.skills-area {
     margin-top: 5%;
     display: flex;
     flex-wrap: wrap;
-  }
-  
-  .single-skill {
+}
+
+.single-skill {
     width: 25%;
     margin-bottom: 80px;
-  }
-  
-  .success-stroke {
-    stroke: #0f2f4f;
-  }
-  
-  .circle-chart__background {
+}
+
+.success-stroke {
+    stroke: #047527;
+}
+
+.circle-chart__background {
     stroke: #ede4e4;
     stroke-width: 1;
-  }
-  
+}
 
-  @media (max-width: 575.98px) {
-  
-      .skill-head {
-          margin: 50px 0;
-      }	
-  
-      .skill-head h1 {
-          font-size: 30px;
-      }
-  
-      .skill-icon {
-          width: 50%;
-      }
-      
-      .skill-icon i {
-          font-size: 70px;
-      }
-  
-      .single-skill {
-          width: 50%;
-      }
-  
-      .circle-chart {
-          width: 130px;
-          height: 130px;
-      }
-  }
+
+@media (max-width: 575.98px) {
+
+    .skill-head {
+        margin: 50px 0;
+    }
+
+    .skill-head h1 {
+        font-size: 30px;
+    }
+
+    .skill-icon {
+        width: 50%;
+    }
+
+    .skill-icon i {
+        font-size: 70px;
+    }
+
+    .single-skill {
+        width: 50%;
+    }
+
+    .circle-chart {
+        width: 130px;
+        height: 130px;
+    }
+}
 
 
 
@@ -362,19 +397,23 @@ label{
     .graphic {
         order: 1;
     }
+
     .timeline {
         order: 2;
     }
+
     .work-position {
         order: 3;
     }
 
 }
+
 .time {
     font-size: 38px;
     font-weight: bolder;
     font-family: "Freeman", sans-serif;
-    letter-spacing: -0.5px;;   
+    letter-spacing: -0.5px;
+    ;
 }
 
 .work-position small:nth-of-type(1) {
@@ -416,4 +455,46 @@ label{
 
 .card-body {
     background: #fff7f3;
+    position: relative;
+    transition: all .5s ease-in;
+}
+
+.card_image {
+    display: block;
+}
+
+.card_overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: none;
+    transition: .5s ease;
+    background-color: #393839;
+}
+
+.card-body:hover .card_overlay {
+    opacity: 1;
+}
+
+.overlay_text {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.overlay_text a {
+    background: #d9ffb6;
+    color: #393839;
+    display: inline-block;
+    text-decoration: none;
 }

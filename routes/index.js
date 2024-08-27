@@ -6,10 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Index' });
 });
 
-router.get('/aboutMe', function(req, res, next) {
-  res.render('aboutMe', { title: 'AboutMe' });
-});
-
 router.get('/qualityPrint', function(req, res, next) {
   res.render('qualityPrint', { title: 'qualityPrint' });
 });

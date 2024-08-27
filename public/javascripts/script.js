@@ -7,9 +7,7 @@ $(document).ready(function () {
 
     const texts = [
         "Hello,",
-        "I'm ",
-        "Dain",
-        ":)",
+        "I'm Dain :)",
     ];
 
     const morphTime = 1; // duration for changing the text
@@ -111,12 +109,12 @@ $(document).ready(function () {
         $(".skill-per").each(function () {
             var $this = $(this);
     
-            // Check if the animation has already been run
+           
             if ($this.data('animated')) {
-                return; // Exit if animation has already run
+                return; 
             }
     
-            var per = parseInt($this.attr("per"), 10);  // 퍼센트 값이 문자열이 아닌 정수로 처리되도록 수정
+            var per = parseInt($this.attr("per"), 10);  
             $this.css("width", per + "%");
             $({ animatedValue: 0 }).animate(
                 { animatedValue: per },
@@ -130,7 +128,7 @@ $(document).ready(function () {
                     }
                 }
             );
-            // Mark this element as animated
+           
             $this.data('animated', true);
         });
     }
@@ -181,7 +179,7 @@ $(document).ready(function () {
             console.log(`Element offsetTop: ${offsetTop}`);
             console.log(`Scroll position: ${scrollTop + windowHeight}`);
 
-            // 요소가 화면에 보이는지 확인하는 조건을 정확하게 설정합니다.
+           
             if (scrollTop + windowHeight > offsetTop) {
                 console.log('Element is becoming visible:', $this);
                 $this.removeClass('hidden').addClass('visible');
@@ -189,10 +187,10 @@ $(document).ready(function () {
         });
     }
 
-    // 초기 호출
+    
     checkVisibility();
 
-    // 스크롤 이벤트 핸들러
+
     $(window).on('scroll', function () {
         requestAnimationFrame(checkVisibility);
     });
