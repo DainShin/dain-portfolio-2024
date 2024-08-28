@@ -813,3 +813,7 @@ label {
     display: inline-block;
     text-decoration: none;
 }
+
+.nav-link.active {
+    color: #e30602; 
+}

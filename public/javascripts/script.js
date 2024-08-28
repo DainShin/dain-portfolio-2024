@@ -114,23 +114,6 @@ $(document).ready(function () {
 
   // skills: when this function is in the first document.ready function, errors occur, so I put it out 
   $(document).ready(function () {
-    // Change the color of the selected menu 
-    var currentPage = window.location.pathname;
-
-    // if the current page is the same as the clicked page then add the active class
-    $(".nav-link").each(function () {
-        var linkPage = $(this).attr("href");
-        if (currentPage === linkPage) {
-            $(this).addClass("active");
-        }
-    });
-
-    // add the active class to the clicked menu
-    $(".nav-link").click(function () {
-        $(".nav-link").removeClass("active");
-        $(this).addClass("active");
-    });
-
     // Function to trigger hard skill animation
     function animateHardSkills() {
         $(".skill-per").each(function () {
@@ -220,5 +203,49 @@ $(document).ready(function () {
 
     $(window).on('scroll', function () {
         requestAnimationFrame(checkVisibility);
+    });
+});
+
+
+$(document).ready(function () {
+    const sections = $('section[id]');
+    const navLinks = $('.navbar-nav .nav-link');
+
+    // IntersectionObserver 설정
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // 섹션의 50% 이상이 보일 때 활성화
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navLinks.removeClass('active');
+                $(`.navbar-nav .nav-link[href="#${id}"]`).addClass('active');
+            }
+        });
+    }, observerOptions);
+
+    sections.each(function () {
+        observer.observe(this);
+    });
+
+    // 메뉴 항목 클릭 시 스크롤과 active 클래스 변경
+    navLinks.on('click', function (e) {
+        e.preventDefault(); // 클릭 시 기본 동작 방지
+
+        const targetId = $(this).attr('href');
+        const $targetSection = $(targetId);
+
+        // 메뉴 항목에서 active 제거하고 클릭된 항목에 추가
+        navLinks.removeClass('active');
+        $(this).addClass('active');
+
+        // 부드럽게 스크롤
+        $('html, body').animate({
+            scrollTop: $targetSection.offset().top
+        }, 500); // 스크롤 애니메이션 시간
     });
 });
