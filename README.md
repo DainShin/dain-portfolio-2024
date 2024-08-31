@@ -1,28 +1,12 @@
-# Description
-This is a portfolio website composed of 4 pages. 
-The code are based on Bootstrap, Javascript and jQuery.
-
-# Live site
-https://comp2068jsframeworks-igt8.onrender.com/
 
 
-# References
-
-### Text Animation
-https://codepen.io/dotonion/pen/MWmMJXz 
-.Onion (@dotonion)
 
 
-### OwlCarousel
-https://codepen.io/khadkamhn/pen/RxVKXP
-MOHAN KHADKA(@khadkamhn)
+<a href="https://www.flaticon.com/free-icons/bootstrap" title="bootstrap icons">Bootstrap icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/css" title="css icons">Css icons created by Pixel perfect - Flaticon</a>
 
 
-### Circular progressbar
-https://codepen.io/iftikharrasha/pen/mdELVpN
-Iftikhar Rasha (@iftikharrasha)
+<a href="https://www.flaticon.com/free-icons/javascript" title="javascript icons">Javascript icons created by Freepik - Flaticon</a>
 
 
-### Skill bar
-https://codepen.io/Beni70/pen/BaNxQyv
-Beni (@Beni70)
